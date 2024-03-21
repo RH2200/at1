@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic Table</title>
+    <style>
+        /* Add your CSS styles here */
+        .element {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 5px;
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="periodic-table"></div>
+
+    <script>
+        // JavaScript code for periodic table simulation
+        // Define element data
+        const elements = [
+            { symbol: 'H', name: 'Hydrogen', atomicNumber: 1 },
+            { symbol: 'He', name: 'Helium', atomicNumber: 2 },
+            // Add more elements here
+        ];
+
+        // Function to generate HTML for each element
+        function createElementHTML(element) {
+            return `<div class="element">
+                        <div class="symbol">${element.symbol}</div>
+                        <div class="name">${element.name}</div>
+                        <div class="atomic-number">${element.atomicNumber}</div>
+                    </div>`;
+        }
+
+        // Function to render periodic table
+        function renderPeriodicTable() {
+            const periodicTableDiv = document.getElementById('periodic-table');
+            elements.forEach(element => {
+                periodicTableDiv.innerHTML += createElementHTML(element);
+            });
+        }
+
+        // Call the render function when the page is loaded
+        window.onload = function () {
+            renderPeriodicTable();
+        };
+    </script>
+</body>
+</html>
